@@ -1,0 +1,1 @@
+Digitrade static site – production build. All images placed under assets/img/. Replace any placeholders with final exports if needed.
