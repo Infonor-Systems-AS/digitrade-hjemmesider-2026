@@ -1,9 +1,17 @@
-/* =========================================================
-   RESET & BASE STYLES
-   ========================================================= */
+.section.container h3 + p {
+   margin-top: -15px !important;
+}
+.section.container .two-cols img {
+   margin-top: 10px !important;
+}
+.section.container > .two-cols > div > *:first-child {
+   margin-top: 0;
+}
+html.dark .section.container {
+   background: #253447;
+}
 * { box-sizing: border-box; }
 body { margin: 0; font-family: Inter, Arial, sans-serif; background: #F5F7FA; color: #364152; line-height: 1.6; }
-h1, h2, h3 { margin-top: 0; font-weight: 700; color: #0E1A33; }
 a { color: inherit; text-decoration: none; }
 .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
@@ -26,32 +34,68 @@ html.dark .logo-light { display:none; }
 html.dark .logo-dark { display:inline; }
 
 /* Aktiv menypeker */
-.main-menu a.active { color:#2A62F4; font-weight:700; position:relative; }
-.main-menu a.active::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#2A62F4; border-radius:2px; opacity:.9; }
-.lang-menu a.active { color:#2A62F4; font-weight:700; position:relative; }
-.lang-menu a.active::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#2A62F4; border-radius:2px; opacity:.9; }
+.main-menu a.active { color:#2AA9E0; font-weight:700; position:relative; }
+.main-menu a.active::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#2AA9E0; border-radius:2px; opacity:.9; }
+.lang-menu a.active { color:#2AA9E0; font-weight:700; position:relative; }
+.lang-menu a.active::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#2AA9E0; border-radius:2px; opacity:.9; }
 
 /* =========================================================
    HERO & SUB-HERO
    ========================================================= */
-.hero { background: linear-gradient(135deg, #2A62F4 0%, #7A33FF 100%); color:#fff; text-align:center; padding:100px 20px 80px; }
+.hero { background: linear-gradient(135deg, #2AA9E0 0%, #2A49E0 100%); color:#fff; text-align:center; padding:100px 20px 80px; }
 .hero-brand { font-size:3.4rem; font-weight:800; margin:0; letter-spacing:-1px; }
 .hero-subtitle { font-size:1.2rem; margin-top:6px; opacity:.9; }
 .hero-tagline { font-size:1.2rem; max-width:720px; margin:32px auto 38px; line-height:1.55; }
-.hero-buttons a { display:inline-block; padding:12px 24px; border-radius:8px; font-weight:600; margin:6px 8px; color:#2A62F4; background:#fff; }
+/* =========================================================
+    COOKIE BANNER
+    ========================================================= */
+#cookie-banner {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   background: #fff;
+   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+   z-index: 1000;
+   padding: 0;
+}
+.cookie-banner-content {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 1100px;
+   margin: 0 auto;
+   padding: 16px 20px;
+   font-size: 1rem;
+}
+#cookie-accept {
+   background: #2AA9E0;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   padding: 8px 18px;
+   font-size: 1rem;
+   cursor: pointer;
+   font-weight: 600;
+}
+#cookie-accept:hover {
+   background: #2A49E0;
+}
+.hero-buttons a { display:inline-block; padding:12px 24px; border-radius:8px; font-weight:600; margin:6px 8px; color:#2AA9E0; background:#fff; }
 .hero-buttons a:hover { background:#E6ECFF; }
 
-.sub-hero { text-align:center; padding:70px 20px 50px; background: linear-gradient(135deg, #2A62F4 0%, #7A33FF 100%); color:#fff; }
+.sub-hero { text-align:center; padding:70px 20px 50px; background: linear-gradient(135deg, #2AA9E0 0%, #2A49E0 100%); color:#fff; }
 .sub-hero-lead { font-size:1.1rem; opacity:.95; max-width:700px; margin:14px auto 30px; }
 
 /* Responsive images */
 .responsive-img { max-width:100%; height:auto; display:block; border-radius:14px; }
-.hero-art img, .sub-hero img { margin:20px auto 0; }
+.hero-art img { margin:40px auto 40px; }
+.sub-hero img { margin:20px auto 0; }
 
 /* Sections */
 .section { padding:50px 0; }
 .section-alt { padding:50px 0; background:#fff; border-top:1px solid #eee; border-bottom:1px solid #eee; }
-.two-cols { display:flex; gap:24px; flex-wrap:wrap; }
+.two-cols { display:flex; gap:70px; flex-wrap:wrap; }
 .two-cols > div { flex:1; min-width:280px; }
 .benefit-list li { margin-bottom:10px; }
 .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -59,19 +103,30 @@ html.dark .logo-dark { display:inline; }
 .card h3 { margin-top: 0; }
 .lead { font-size: 1.1rem; font-weight: 500; margin-bottom: 20px; }
 
+/* Alternating section backgrounds and card effect */
+.section.container {
+   background: #fff;
+   border-radius: 18px;
+   box-shadow: 0 2px 16px 0 rgba(44, 62, 80, 0.07);
+   margin-bottom: 36px;
+   padding: 48px 70px;
+   transition: box-shadow 0.2s;
+}
+
 /* CTA footer */
-.cta-footer { text-align:center; padding:60px 20px; background:#2A62F4; color:#fff; }
-.cta-footer a { display:inline-block; padding:12px 25px; margin:10px; background:#fff; color:#2A62F4; border-radius:6px; font-weight:600; }
+.cta-footer { text-align:center; padding:60px 20px; background: linear-gradient(135deg, #2AA9E0 0%, #2A49E0 100%); color:#fff; }
+.cta-footer a { display:inline-block; padding:12px 25px; margin:10px; background:#fff; color:#2AA9E0; border-radius:6px; font-weight:600; }
 .cta-footer a:hover { background:#E6ECFF; }
 
 /* Footer */
-.footer { text-align:center; padding:24px; background:#0E1A33; color:#fff; }
+.footer { text-align:center; padding:24px; background:#1C2B35; color:#fff; }
+.footer a { margin-right: 100px; }
 
 /* Dark mode */
-html.dark body { background:#0E1A33; color:#F5F7FA; }
+html.dark body { background:#1C2B35; color:#F5F7FA; }
 html.dark h1, html.dark h2, html.dark h3 { color:#F5F7FA; }
-html.dark .site-header { background:#0E1A33; box-shadow:none; }
-html.dark .cta-footer { background:#1a3fd1; }
+html.dark .site-header { background:#1C2B35; box-shadow:none; }
+html.dark .cta-footer { background: linear-gradient(135deg, #2AA9E0 0%, #2A49E0 100%); }
 html.dark .card { background: #1a1a1a; }
 html.dark .main-menu a, html.dark .lang-menu a { color:#F5F7FA; }
 
@@ -99,5 +154,5 @@ html.dark .main-menu a, html.dark .lang-menu a { color:#F5F7FA; }
   .mobile-menu-open .main-menu { display:block; }
   .hamburger { display:block; }
   .site-header { padding:10px 15px; position:relative; }
-  html.dark .main-menu { background:#0E1A33; }
+  html.dark .main-menu { background:#1C2B35; }
 }
